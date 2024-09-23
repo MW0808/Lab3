@@ -65,7 +65,7 @@ public class InLabByHandTranslator implements Translator {
             returnString = "Canadá";
         }
         else if ("fr".equals(language)) {
-            returnString = "le Canada";
+            returnString = "Canada";
         }
         return returnString;
     }
