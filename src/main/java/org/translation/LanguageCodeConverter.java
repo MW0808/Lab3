@@ -13,7 +13,10 @@ import java.util.Map;
  */
 public class LanguageCodeConverter {
 
-    // TODO Task: pick appropriate instance variables to store the data necessary for this class
+    // DONE Task: pick appropriate instance variables to store the data necessary for this class
+    private Map<String, String> languageCodeToName;
+    private Map<String, String> languageToCode;
+    private int numLanguages;
 
     /**
      * Default constructor which will load the language codes from "language-codes.txt"
@@ -29,7 +32,8 @@ public class LanguageCodeConverter {
      * @throws RuntimeException if the resource file can't be loaded properly
      */
     public LanguageCodeConverter(String filename) {
-
+        languageCodeToName = new HashMap<>();
+        languageToCode = new HashMap<>();
         try {
             List<String> lines = Files.readAllLines(Paths.get(getClass()
                     .getClassLoader().getResource(filename).toURI()));
@@ -37,8 +41,9 @@ public class LanguageCodeConverter {
             // TODO Task: use lines to populate the instance variable
             //           tip: you might find it convenient to create an iterator using lines.iterator()
 
-        // TODO Checkstyle: '}' on next line should be alone on a line.
-        } catch (IOException | URISyntaxException ex) {
+            // DONE Checkstyle: '}' on next line should be alone on a line.
+        }
+        catch (IOException | URISyntaxException ex) {
             throw new RuntimeException(ex);
         }
 
